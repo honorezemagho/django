@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,10 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clients App</title>
+    <link rel="stylesheet" href="{% static 'clients/styles/style.css' %}">
 </head>
 <body>
     <h1>Clients Apps</h1>
     <hr>
     <p>Hello world</p>
+
+    <div class="card" style="width: 18rem;">
+        <div class="card-header">
+          Our Clients
+        </div>
+        {% if show_clients %}
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{ clients.0.name }}</li>
+          <li class="list-group-item">Dapibus ac facilisis in</li>
+          <li class="list-group-item">Vestibulum at eros</li>
+        </ul>
+        {% else %}
+        <p>No meetups found</p>
+        {% endif %}
+      </div>
 </body>
 </html>
