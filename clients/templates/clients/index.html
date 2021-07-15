@@ -9,21 +9,8 @@
                 {% if show_clients == False %}
                     <div class="row">
                         {% for client in clients %}
-                        <div class="col-4">
-                            <div class="card" style="width: 18rem;">
-                                <div class="card-body">
-                                    <h4 class="card-title">{{ client.name }}</h4>
-                                    <p class="card-text">Client details</p>
-                                </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">Name: {{ client.name }}</li>
-                                        <li class="list-group-item">Phone: {{ client.phone }}</li>
-
-                                        <a href="{% url 'client-details' client.slug %}" class="btn btn-primary">View More</a>
-                                    </ul>
-                                </div>
-                            </div>
-                            {% endfor %}
+                            {% include "clients/includes/client-card.html" with  name=client.name phone=client.phone  slug=client.slug %}
+                        {% endfor %}
                       </div>
                 {% else %}
                     <p>No meetups found</p>
