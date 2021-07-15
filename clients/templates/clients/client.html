@@ -1,0 +1,27 @@
+{% extends 'clients/layouts/base.html' %}
+{% load static %}
+{% block title %} Client details {% endblock %}
+
+{% block content %}
+<div class="container my-3">
+    <div class="card text-center">
+        <div class="card-header">
+          {{ client.name }}
+        </div>
+        <div class="card-body">
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">Name: {{ client.name }}</li>
+            <li class="list-group-item">Phone: {{ client.phone }}</li>
+            <li class="list-group-item">Email: {{ client.email }}</li>
+            <address> Location: {{ client.location }}</address>
+
+            <a href="{% url 'clients' %}" class="btn btn-primary">View all clients</a>
+        </ul>
+        </div>
+        <div class="card-footer text-muted">
+          2 days ago
+        </div>
+      </div>
+</div>
+{% endblock %}
